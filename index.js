@@ -53,7 +53,21 @@ app.post('/update-cobj', async (req, res) => {
     const { name, species, description } = req.body;
     const customObjectURL = `https://api.hubapi.com/crm/v3/objects/${PLANT_CUSTOM_OBJECT_ID}`;
 
+    const newRecord = {
+      properties: {
+        name,
+        species,
+        description
+      }
+    };
   
+    try {
+      await axios.post(customObjectURL, newRecord, { headers });
+      res.redirect('/');
+    } catch (err) {
+      console.error('Error creating record:', err);
+      res.status(500).send('Failed to create record');
+    }
   });
 /** 
 * * This is sample code to give you a reference for how you should structure your calls. 
