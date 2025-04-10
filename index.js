@@ -10,12 +10,16 @@ require('dotenv').config();
 
 // * Please DO NOT INCLUDE the private app access token in your repo. Don't do this practicum in your normal account.
 const PRIVATE_APP_ACCESS_TOKEN = process.env.PRIVATE_APP_ACCESS;
-const CUSTOM_OBJECT_PLANT_ID = process.env.CUSTOM_OBJECT_PLANT;
+const PLANT_CUSTOM_OBJECT_ID = process.env.CUSTOM_OBJECT_PLANT;
 
 // TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
 
-// * Code for Route 1 goes here
-
+// * Get the custom object Plants 
+app.get('/', async (req, res) => {
+    const apiURL = `https://api.hubapi.com/crm/v3/objects/${PLANT_CUSTOM_OBJECT_ID}?properties=name,description,species`;
+  
+    
+  });
 // TODO: ROUTE 2 - Create a new app.get route for the form to create or update new custom object data. Send this data along in the next route.
 
 // * Code for Route 2 goes here
