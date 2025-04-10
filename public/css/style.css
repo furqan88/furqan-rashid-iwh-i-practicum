@@ -115,3 +115,9 @@ input[type="submit"].submit {
     border-radius: 5px;
     cursor: pointer;
 }
+
+input[type="submit"].submit:hover {
+    background-color: #218838;
+}
+
+
