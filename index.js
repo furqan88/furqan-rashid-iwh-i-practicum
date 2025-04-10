@@ -28,7 +28,7 @@ app.get('/', async (req, res) => {
         const records = response.data.results;
         res.render('homepage', {
           title: 'Plants Records',
-          pets: records
+          plants: records
         });
       } catch (err) {
         console.error('Error fetching records:', err.message);
