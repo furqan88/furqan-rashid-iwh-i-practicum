@@ -116,6 +116,10 @@ input[type="submit"].submit {
     cursor: pointer;
 }
 
+input[type="submit"].submit:focus {
+    outline: none;
+}
+
 input[type="submit"].submit:hover {
     background-color: #218838;
 }
