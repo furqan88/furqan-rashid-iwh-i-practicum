@@ -18,7 +18,22 @@ const PLANT_CUSTOM_OBJECT_ID = process.env.CUSTOM_OBJECT_PLANT;
 app.get('/', async (req, res) => {
     const apiURL = `https://api.hubapi.com/crm/v3/objects/${PLANT_CUSTOM_OBJECT_ID}?properties=name,description,species`;
   
-    
+    try {
+        const response = await axios.get(apiURL, {
+          headers: {
+            Authorization: `Bearer ${PRIVATE_APP_ACCESS_TOKEN}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        const records = response.data.results;
+        res.render('homepage', {
+          title: 'Plants Records',
+          pets: records
+        });
+      } catch (err) {
+        console.error('Error fetching records:', err.message);
+        res.status(500).send('Failed to fetch records');
+      }
   });
 // TODO: ROUTE 2 - Create a new app.get route for the form to create or update new custom object data. Send this data along in the next route.
 
