@@ -54,3 +54,27 @@ th {
 tr:nth-child(even) {
     background-color: #f9f9f9;
 }
+
+a.button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-size: 1rem;
+    text-align: center;
+}
+
+a.button:hover {
+    background-color: #0056b3;
+}
+
+a.return {
+    background-color: #6c757d;
+}
+
+a.return:hover {
+    background-color: #5a6268;
+}
