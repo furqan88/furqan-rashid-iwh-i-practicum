@@ -6,18 +6,20 @@ html
     link(rel="stylesheet", href="/css/style.css")
   body
     .container
-      h1 #{pageTitle}
-      a(href="/update-cobj") Add New Plants Record
-      table
-        thead
-          tr
-            th Name
-            th Species
-            th Description
-        tbody
-          each item in plants
+      .header
+        h1 #{pageTitle}
+        a(href="/update-cobj", class="button") Add New Plants Record
+      .table-wrapper
+        table
+          thead
             tr
-              td= item.properties.name
-              td= item.properties.species
-              td= item.properties.description
-      a(href="/") Return to homepage
+              th Name
+              th Species
+              th Description
+          tbody
+            each item in plants
+              tr
+                td= item.properties.name
+                td= item.properties.species
+                td= item.properties.description
+      a(href="/", class="button return") Return to homepage
