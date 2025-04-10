@@ -29,7 +29,7 @@ app.get('/', async (req, res) => {
         });
         const records = response.data.results;
         res.render('homepage', {
-          title: 'Plants Records',
+          pageTitle: 'Plants Records',
           plants: records
         });
       } catch (err) {
