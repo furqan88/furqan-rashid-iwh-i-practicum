@@ -8,14 +8,14 @@ html
     .form-wrapper
       h1 #{pageTitle}
       form(method="POST", action="/update-cobj")
-        label(for="name") Name
-        input(type="text", name="name", required)
-
-        label(for="species") Species
-        input(type="text", name="species", required)
-
-        label(for="description") Description
-        input(type="text", name="description", required)
-
-        input(type="submit", value="Submit")
-      a(href="/") Return to homepage
+        .form-group
+          label(for="name") Name
+          input(type="text", name="name", required)
+        .form-group
+          label(for="species") Species
+          input(type="text", name="species", required)
+        .form-group
+          label(for="description") Description
+          input(type="text", name="description", required)
+        input(type="submit", value="Submit", class="button submit")
+      a(href="/", class="button return") Return to homepage
