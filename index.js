@@ -12,6 +12,11 @@ require('dotenv').config();
 const PRIVATE_APP_ACCESS_TOKEN = process.env.PRIVATE_APP_ACCESS;
 const PLANT_CUSTOM_OBJECT_ID = process.env.CUSTOM_OBJECT_PLANT;
 
+const headers = {
+    Authorization: `Bearer ${PRIVATE_APP_ACCESS_TOKEN}`,
+    'Content-Type': 'application/json'
+  };
+  
 // TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
 
 // * Get the custom object Plants 
@@ -20,10 +25,7 @@ app.get('/', async (req, res) => {
   
     try {
         const response = await axios.get(apiURL, {
-          headers: {
-            Authorization: `Bearer ${PRIVATE_APP_ACCESS_TOKEN}`,
-            'Content-Type': 'application/json'
-          }
+          headers
         });
         const records = response.data.results;
         res.render('homepage', {
@@ -46,8 +48,13 @@ app.get('/update-cobj', (req, res) => {
   });
 // TODO: ROUTE 3 - Create a new app.post route for the custom objects form to create or update your custom object data. Once executed, redirect the user to the homepage.
 
-// * Code for Route 3 goes here
+// * Code for Route 3 goes here | Handle form submission to add new record 
+app.post('/update-cobj', async (req, res) => {
+    const { name, species, description } = req.body;
+    const customObjectURL = `https://api.hubapi.com/crm/v3/objects/${PLANT_CUSTOM_OBJECT_ID}`;
 
+  
+  });
 /** 
 * * This is sample code to give you a reference for how you should structure your calls. 
 
