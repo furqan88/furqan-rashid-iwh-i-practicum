@@ -6,9 +6,11 @@ app.set('view engine', 'pug');
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+require('dotenv').config();
 
 // * Please DO NOT INCLUDE the private app access token in your repo. Don't do this practicum in your normal account.
-const PRIVATE_APP_ACCESS = '';
+const PRIVATE_APP_ACCESS_TOKEN = process.env.PRIVATE_APP_ACCESS;
+const CUSTOM_OBJECT_PLANT_ID = process.env.CUSTOM_OBJECT_PLANT;
 
 // TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
 
